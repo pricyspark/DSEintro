@@ -21,6 +21,7 @@ def calc_elapsed(
             source, target, edge_length=crop_edge
         )
     else:
+        assert downsample is not None
         source_crop, target_crop = dual_resize(source, target, downsample)
     start = time.perf_counter()
     morph(source_crop, target_crop)

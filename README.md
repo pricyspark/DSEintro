@@ -18,7 +18,9 @@ Note: Please don't try and break or edge test the CLI. Adding QOL
 features ended up being way more work than I estimated and took much
 longer than the actual backend.
 
-Pass the source image followed by the target image:
+Pass the source image followed by the target image. This example will
+almost definitely fail without downsampling, since it requires ~7 TiB of
+RAM:
 
 ```shell
 python cli.py images/source.jpg images/target.jpg
@@ -32,12 +34,13 @@ python cli.py images/source.jpg images/target.jpg --output result.png
 ```
 
 Use a downsample factor, desired longest edge, or target runtime to choose the
-problem size:
+problem size. Time complexity $O(n^6)$ space complexity $O(n^4)$ so
+shrinking the problem is imperative:
 
 ```shell
-python cli.py images/source.jpg images/target.jpg --downsample 20
+python cli.py images/source.jpg images/target.jpg --downsample 15
 python cli.py images/source.jpg images/target.jpg --edge-length 100
-python cli.py images/source.jpg images/target.jpg --target-runtime 5
+python cli.py images/source.jpg images/target.jpg --target-runtime 30
 ```
 
 Target runtime is specified in seconds. ImageMorph runs a short benchmark and
@@ -45,7 +48,7 @@ selects an edge length whose estimated matching time fits that runtime. Use
 `--benchmark-seconds` to change the default 10-second benchmark budget:
 
 ```shell
-python cli.py images/source.jpg images/target.jpg --target-runtime 5 --benchmark-seconds 3
+python cli.py images/source.jpg images/target.jpg --target-runtime 30 --benchmark-seconds 5
 ```
 
 To estimate the matching time before reconstruction, optionally setting the

@@ -57,3 +57,16 @@ python cli.py images/source.jpg images/target.jpg --edge-length 100 --estimate-r
 ```
 
 Run `python cli.py --help` to see all available options.
+
+## DSE
+
+My name is Kevin Li.
+
+I have a bachelors in computer science and
+engineering from the University of Michigan, where I focussed on AI/ML
+and complex systems. I ultimately hope to work in AI architecture design
+and numerical optimization. I hope DSE can help me understand the field
+and how to thrive in a research environment.
+
+Prior to UTK, my favorite classes were Japanese, operating systems,
+quantum computing, theory of complex systems, and discrete math.

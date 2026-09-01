@@ -1,3 +1,9 @@
+# My name is Kevin Li.
+# I enjoy desk and workstation peripherals. I have built several custom
+# keyboard over the years and have have a pretty good hope audio setup.
+# I've also wasted far too much time researching ergonomics, chairs, and
+# computer monitors.
+
 import argparse
 import math
 
